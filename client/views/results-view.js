@@ -12,9 +12,8 @@ app.resultsView = Backbone.View.extend({
 
     initialize: function() {
         this.model = new app.resultsModel();
-        console.log('model', this.model);
 
-        //this.listenTo(this.model, 'submit', this.render);
+        this.listenTo(this.model, 'submit', this.render);
     },
 
     template: _.template( $('#resultsTemplate').html() ),
@@ -26,6 +25,7 @@ app.resultsView = Backbone.View.extend({
 
     onSubmit: function(e) {
         e.preventDefault();
+        var _this = this;
         var formData = {};
         var datas = $('form').serializeArray();
 
@@ -33,7 +33,12 @@ app.resultsView = Backbone.View.extend({
             formData[data['name']] = data['value'];
         });
         console.log(formData);
-        this.model.save(formData);
+        this.model.save(formData)
+            .then(function(data) {
+                console.log(data);
+            }).then(function(data) {
+                _this.render();
+            });
         // this.collection.fetch
     },
 
