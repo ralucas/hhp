@@ -12,14 +12,14 @@ app.resultsView = Backbone.View.extend({
 
     initialize: function() {
         this.model = new app.resultsModel();
-
-        this.listenTo(this.model, 'submit', this.render);
+        // this.listenTo(this.model, 'submit', this.render);
     },
 
     template: _.template( $('#resultsTemplate').html() ),
 
     render: function() {
-        this.$el.html(this.template( this.model.toJSON() ));
+        var $results = this.$el.closest('body').find('#results');
+        $results.html(this.template( this.model.toJSON() ));
         return this;
     },
 
@@ -32,18 +32,12 @@ app.resultsView = Backbone.View.extend({
         _.each(datas, function(data) {
             formData[data['name']] = data['value'];
         });
-        console.log(formData);
+        console.log('send', formData);
         this.model.save(formData)
-            .then(function(data) {
-                console.log(data);
-            }).then(function(data) {
+            .then(function(response) {
+                console.log('response', response);
                 _this.render();
             });
-        // this.collection.fetch
-    },
-
-    renderResults: function() {
-        this.$el.html(this.template( this.model.toJSON() ));
     }
 
 });

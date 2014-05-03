@@ -10,7 +10,10 @@
     "nconf": "^0.6.9",
     "knex": "^0.5.13",
     "bookshelf": "^0.6.10",
-    "q": "^1.0.1"
+    "q": "^1.0.1",
+    "xml2js": "^0.4.2",
+    "lodash": "^2.4.1",
+    "node-zillow": "git+http://github.com/ralucas/node-zillow"
   },
   "devDependencies": {
     "mocha": "^1.18.2",
