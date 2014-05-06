@@ -1,6 +1,7 @@
 var gulp    = require('gulp'),
     plugins = require("gulp-load-plugins")(),
-    config  = require('./lib/config');
+    config  = require('./lib/config'),
+    stylish = require('jshint-stylish');
 
 var paths = {
     scripts: ['./lib/*.js'],
@@ -15,7 +16,8 @@ gulp.task('test', function() {
 
 gulp.task('lint', function() {
     return gulp.src(paths.scripts)
-        .pipe(plugins.jshint());
+        .pipe(plugins.jshint())
+        .pipe(jshint.reporter(stylish));
 });
 
 gulp.task('run', function() {
