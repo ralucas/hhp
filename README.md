@@ -1,4 +1,4 @@
-Heating and cooling calculator
+Heating and cooling calculator [![Build Status](https://secure.travis-ci.org/ralucas/hhp.png?branch=master)](http://travis-ci.org/ralucas/hhp)
 ---
 
 * Uses Zillow api to pull sq footage from users address
