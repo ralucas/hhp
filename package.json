@@ -30,6 +30,7 @@
     "gulp-wait": "0.0.2",
     "supertest": "^0.10.0",
     "gulp-mocha": "^0.4.1",
-    "jshint-stylish": "^0.2.0"
+    "jshint-stylish": "^0.2.0",
+    "jshint": "^2.5.1"
   }
 }
